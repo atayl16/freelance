@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./documents.component.css']
 })
 export class DocumentsComponent implements OnInit {
-  pageTitle: string = "Document Dashboard"
   constructor() { }
 
   ngOnInit() {
   }
+  pageTitle: string = "Document Dashboard"
   documents: Document[] = [
   		{
   			title: "My First Doc",
