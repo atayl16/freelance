@@ -8,7 +8,7 @@ import { Document } from './documents';
 
 @Injectable()
 export class DocumentService {
-  private documentsUrl = 'http://localhost:3000/freelance_documents';
+  private documentsUrl = 'https://atayl16-freelance-documents.herokuapp.com/*';
     document:Document[];
   	constructor(private httpClient: HttpClient) { }
 
