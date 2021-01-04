@@ -1,34 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { timer } from 'rxjs';
+import { Document } from './documents';
+import { DocumentService } from './document.service';
 
 @Component({
-  selector: 'app-documents',
-  templateUrl: 'documents.component.html',
-  styleUrls: ['documents.component.css']
+	selector: 'documents',
+	templateUrl: 'documents.component.html',
+	styleUrls: ['documents.component.css'],
+	providers: [ DocumentService ]
 })
+export class DocumentsComponent implements OnInit {
+	pageTitle: string = "Document Dashboard"
+	documents: Document[];
+	errorMessage: string;
+	mode = "Observable";
 
-export class DocumentsComponent {
-  pageTitle: string = "Document Dashboard";
-  documents: Document[] = [
-  		{
-  			title: "My First Doc",
-  			description: "asdfasdfasdf asdfasd",
-  			file_url: "http://google.com",
-  			updated_at: "11/11/16",
-  			image_url: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Mistakes-to-avoid-when-hiring-freelancers.jpg',
-  		},
-  		{
-  			title: "My Second Doc",
-  			description: "asdfasdfasdf asdfasd",
-  			file_url: "http://google.com",
-  			updated_at: "11/11/16",
-  			image_url: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Mistakes-to-avoid-when-hiring-freelancers.jpg',
-  		},
-  		{
-  			title: "My Last Doc",
-  			description: "asdfasdfasdf asdfasd",
-  			file_url: "http://google.com",
-  			updated_at: "11/11/16",
-  			image_url: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Mistakes-to-avoid-when-hiring-freelancers.jpg',
-  		}
-  	]
+	constructor(
+		private documentService: DocumentService,
+	) {}
+
+	ngOnInit() {
+		let docTimer = timer(0, 5000);
+		docTimer.subscribe(() => this.getDocuments());
+	}
+
+	getDocuments() {
+		this.documentService.getDocuments()
+				.subscribe(
+					documents => this.documents = documents,
+					error => this.errorMessage = <any>error
+				);
+	}
 }
