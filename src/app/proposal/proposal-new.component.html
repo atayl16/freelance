@@ -7,7 +7,7 @@
 			<div>
 				<form #proposalForm="ngForm">
 					<div class="form-group">
-						<label for="customer">Customer Name </label>
+						<label for="customer">Business Name </label>
 						<input type="text"
 										id="customer"
 										placeholder="ABC Company"
@@ -19,12 +19,12 @@
 						<div [hidden]="customer.valid || customer.pristine"
 									class='alert alert-danger'
 						>
-							Customer name is required
+							Business name is required
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="portfolio_url">Portfolio URL </label>
+						<label for="portfolio_url">Github URL </label>
 						<input type="text"
 										id="portfolio_url"
 										required
@@ -35,12 +35,12 @@
 						<div [hidden]="portfolio_url.valid || portfolio_url.pristine"
 									class='alert alert-danger'
 						>
-							A Portfolio URL is required
+							A Github URL is required
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="tools">Tools that you'll use on the project </label>
+						<label for="tools">Role applying for </label>
 						<input type="text"
 										id="tools"
 										placeholder="Ruby on Rails, Angular, etc"
@@ -52,7 +52,7 @@
 						<div [hidden]="tools.valid || tools.pristine"
 									class='alert alert-danger'
 						>
-							A list of tools is required
+							A role is required
 						</div>
 					</div>
 
@@ -120,25 +120,29 @@
 
 		<div class="col-md-6">
 			<div>
-				<p>Hi {{ proposal.customer }},</p>
+
+				<p>Alisha Taylor</p>
+				<p>inspirebyexample0@gmail.com</p>
+				<p></p>
+				<p>Dear Hiring Manager,</p>
 
 
-				<p>It was a pleasure getting to meet with you and review your project requirements, I believe it is a great fit for the types of applications that I build out. Please feel free to check out some of my past projects <a href="{{ proposal.portfolio_url }}">here</a>.</p>
+				<p>I'm excited to be applying for the {{ proposal.tools }} position at {{ proposal.customer }}. I have spent most of my life working with startups and am able to fill many roles simultaneously while still meeting deadlines and delivering exceptional quality. As a junior Ruby on Rails coder with a Masters in Accounting and 7 years working as a Project Manager, QA Manager and Onboarding Manager for the same company, designing a program that is truly helpful to both internal and external users is my ultimate goal on every project. I am delighted by the opportunity to apply my knowledge at {{ proposal.customer }} as I truly enjoy working with small teams. Feel free to checkout my Github repositories <a href="{{ proposal.portfolio_url }}">here</a>.</p>
 
 
-				<p>To successfully build out the application I will be utilizing {{ proposal.tools }}, and a number of other tools to ensure that the project follows industry wide best practices.</p>
+				<p>In my current role at MyTime, I provide support for all areas of the company. I developed two separate apps that help multiple departments save many hours of manual work on a daily basis. I am also the only agile project manager in the company and have been for 2 years, so I handle every major project including mid to enterprise level merchant pilots or launches, some as large as 200+ locations in 6 weeks, the conversion of all Twilio numbers to 10DLC A2P messaging services and custom development scoping, planning and tracking. Another major contribution was the development of the entire customer onboarding process from the ground up, which I now manage with 3 onboarding specialists that report to me, effectively reducing early churn by over 50%. I also built and now manage the QA team with 5 analysts that have reduced both the time needed for new features to reach production and the number of defects that come with those features. Finally, I lead the documentation team and have started a weekly changelog and a daily, as needed, database changelog to provide transparency to our merchants.</p>
 
 
-				<p>Ensuring that you are fully informed is one of my top priorities, so in addition to incorporating everything that we discussed, I will also be creating a project management dashboard and sending you a project update message daily so that you can have a transparent view of the development as it takes place.</p>
+				<p>Aside from my role with MyTime, I contribute to open source projects, do volunteer freelance coding projects for non-profit organizations, and work with my coding mentor as an intern to develop my coding skills in an environment with a shorter development lifecycle.</p>
 
 
-				<p>To accomplish the project and meet the requirements that we discussed, I am estimating that it will take {{ proposal.estimated_hours }} hours in development time to complete. The project should take {{ proposal.weeks_to_complete }} weeks to complete and with my hourly rate of ${{ proposal.hourly_rate }}/hour, the estimated total will be ${{ proposal.hourly_rate * proposal.estimated_hours }}.</p>
+				<p>Thank you for your time and consideration. I'm looking forward to learning more about the {{ proposal.tools }} position and about {{ proposal.customer }}. As a Software Developer, my goal is to continually increase my programming skills in order to present better solutions to my employers and their clients. I look forward to learning how I can work with the team at {{ proposal.customer }} to realize our goals together.</p>
 
 
-				<p>The next step from here is to set up a meeting to finalize the project and sign contracts.</p>
+				<p>Sincerely,</p>
 
 
-				<p>I am excited to start working with you to build out this project.</p>
+				<p>Alisha M. Taylor</p>
 			</div>
 		</div>
 
